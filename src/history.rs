@@ -44,7 +44,6 @@ fn call_git<P: AsRef<Path>>(dir: P, cmd: &str) -> Result<String> {
 
 impl Git {
     pub fn trans(msg: String) -> Result<Vec<Commit>> {
-        println!("{}", msg);
         let mut list: Vec<Commit> = vec![];
         for item in msg.lines().into_iter() {
             let commit: Commit = serde_json::from_str(item).map_err(|e| {
